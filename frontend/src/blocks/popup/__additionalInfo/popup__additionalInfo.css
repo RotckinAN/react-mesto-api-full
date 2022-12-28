@@ -1,0 +1,13 @@
+.popup__additionalInfo {
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+    margin: 0 auto;
+    padding-top: 15px;
+    text-decoration: none;
+}
+
+.popup__additionalInfo:hover {
+    opacity: 0.6;
+    transition: 0.3s;
+}

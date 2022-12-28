@@ -1,0 +1,14 @@
+.page__loading {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    background-color: #000000;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 48px;
+    color: #FFFFFF;
+    margin: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

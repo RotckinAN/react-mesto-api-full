@@ -1,0 +1,7 @@
+.header__userLogin_active {
+    z-index: 2;
+    display: flex;
+    padding: 0;
+    font-size: 18px;
+    line-height: 22px;
+}

@@ -1,0 +1,30 @@
+.popup__item {
+    border: 0;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    outline: none;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    padding-bottom: 10px;
+}
+
+.popup__item:focus {
+    outline: 2px solid rgb(0, 162, 255);
+    border-radius: 2px;
+}
+
+.popup__item::placeholder {
+    font-size: 14px;
+    line-height: 17px;
+    color: #C4C4C4;
+}
+
+@media screen and (max-width: 600px) {
+    .popup__item {
+        padding-top: 10px;
+    }
+}

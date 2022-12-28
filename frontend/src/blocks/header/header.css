@@ -1,0 +1,43 @@
+.header {
+    box-sizing: border-box;
+    min-height: 120px;
+    position: relative;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 200px;
+    width: calc(100% - 200px - 200px);
+    height: 100%;
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+}
+
+@media screen and (max-width: 1280px) {
+    .header {
+        min-height: 75px; 
+    }
+    
+    .header::before {
+        left: 20px;
+        width: calc(100% - 20px - 20px);
+    }
+}
+
+@media screen and (max-width: 710px) {
+    .header {
+        min-height: 70px; 
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .header {
+        min-height: 56px; 
+    }
+    
+    .header::before {
+        left: 0;
+        width: 100%;
+    }
+}

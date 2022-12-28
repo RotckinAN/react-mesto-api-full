@@ -1,0 +1,6 @@
+.header__mobileVersionButton_active {
+    background-image: url("../../../../images/closeIconHeader.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}

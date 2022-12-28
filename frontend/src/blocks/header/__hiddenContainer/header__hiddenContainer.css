@@ -1,0 +1,5 @@
+.header__hiddenContainer {
+    display: flex;
+    height: 0;
+    visibility: hidden;
+}

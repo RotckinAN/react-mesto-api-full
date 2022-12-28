@@ -1,0 +1,6 @@
+.page__loadingContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}

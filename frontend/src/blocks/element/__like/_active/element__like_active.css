@@ -1,0 +1,9 @@
+.element__like_active {
+    background: url(../../../../images/vector-like_active.svg);
+    background-size: 100%;
+    cursor: pointer;
+    width: 22px;
+    height: 19px;
+    opacity: 1;
+    transition: 0.3s;
+}

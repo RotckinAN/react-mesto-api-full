@@ -1,0 +1,40 @@
+.header__loginButton {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0;
+    padding: 7px 0 0 0;
+    color: #FFFFFF;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    height: fit-content;
+}
+
+.header__loginButton:hover {
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 600px) {
+    .header__loginButton {
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header__loginButton {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 330px){
+    .header__loginButton {
+        font-size: 14px;
+        line-height: 17px;
+        margin-right: 30px;
+    }
+}
