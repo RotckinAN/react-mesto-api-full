@@ -45,7 +45,8 @@ export const checkToken = () => {
     return request(`${BASE_URL}/users/me`, {
         method: 'GET',
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            'credentials': 'include'
             // "Authorization" : `Bearer ${JWT}`
         }
     })
