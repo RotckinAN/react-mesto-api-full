@@ -102,27 +102,31 @@ function App() {
     //         console.error(err)})
     // }, [handleTokenCheck])
 
-    useEffect(() => {
-        if (isLoggedIn) {
+    // useEffect(() => {
+    //     if (isLoggedIn) {
             api.getUserInfoByRequest()
                 .then((res) => {
                     setCurrentUser(res);
+                    setIsLoggedIn(true);
                 })
                 .catch((err) => {
                     console.error(err)
                 });
-        }
-    }, [isLoggedIn]);
+    //     }
+    // }, [isLoggedIn]);
 
-    useEffect(() => {
-        if (isLoggedIn) {
+    // useEffect(() => {
+    //     if (isLoggedIn) {
             api.getInitialCards()
-                .then(setCards)
+                .then((cards) => {
+                    setCards(cards);
+                    setIsLoggedIn(true);
+                })
                 .catch((err) => {
                     console.error(err)
                 });
-        }
-    }, [isLoggedIn]);
+    //     }
+    // }, [isLoggedIn]);
 
     function handleEditProfileClick() {
         setIsEditProfilePopupOpen(true)
