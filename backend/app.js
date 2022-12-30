@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const helmet = require('helmet');
+const cors = require('cors');
 const router = require('./routes/index');
 const { errorHandler } = require('./helpers/errorHandler');
 const { limiter } = require('./middlewares/rateLimit');
@@ -13,7 +14,7 @@ const { allowedCorsMiddleware } = require('./middlewares/allowedCors');
 const { PORT = 3000 } = process.env;
 const app = express();
 
-app.use(allowedCorsMiddleware);
+app.use(cors(allowedCorsMiddleware));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(limiter);
