@@ -77,7 +77,8 @@ function App() {
         // localStorage.removeItem('jwt');
     }, [])
 
-    const handleTokenCheck = useCallback(async () => {
+    // const handleTokenCheck = useCallback(async () => {
+    const handleTokenCheck = async () => {
         // if (localStorage.getItem('jwt')) {
         //     const jwt = localStorage.getItem('jwt');
         //     if (!jwt) {
@@ -110,7 +111,7 @@ function App() {
         // }
         setIsLoadingPage(false);
     // }, [localStorage.getItem('jwt')]);
-    }, []);
+    // }, []);
 
     useEffect(() => {
         handleTokenCheck()
