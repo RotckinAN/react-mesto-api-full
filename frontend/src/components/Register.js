@@ -7,7 +7,7 @@ function Register({onRegister, isLoggedIn}) {
 
     return (
         <>
-            <Header buttonPath={() => history.push('/sign-in')} loginText='' buttonText='Войти' additionalClassName='' loggedIn={isLoggedIn}/>
+            <Header buttonPath={() => history.push('/signin')} loginText='' buttonText='Войти' additionalClassName='' loggedIn={isLoggedIn}/>
             <AuthorizationUserForm onSubmit={onRegister} name='register' title='Регистрация' buttonText='Зарегистрироваться' />
         </>
     )

@@ -47,7 +47,7 @@ function AuthorizationUserForm({onSubmit, isLoggedIn, name, title, buttonText, a
                     <span className={inputPasswordMessageErrorClassName}>{password.inputError}</span>
                 </label>
                 <button type="submit" value={buttonText} className={buttonClassName} id={`${name}-saveButton`} disabled={!isFormValid}>{buttonText}</button>
-                <Link to='/sign-in' className={`popup__additionalInfo ${additionalClassName}`}>Уже зарегистрированы? Войти</Link>
+                <Link to='/signin' className={`popup__additionalInfo ${additionalClassName}`}>Уже зарегистрированы? Войти</Link>
             </form>
         </div>
     )

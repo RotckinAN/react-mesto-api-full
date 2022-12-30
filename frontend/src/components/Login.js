@@ -7,7 +7,7 @@ function Login({onLogin, isLoggedIn}) {
 
     return (
         <>
-            <Header buttonPath={() => history.push('/sign-up')} loginText='' buttonText='Регистрация' additionalClassName='' loggedIn={isLoggedIn}/>
+            <Header buttonPath={() => history.push('/signup')} loginText='' buttonText='Регистрация' additionalClassName='' loggedIn={isLoggedIn}/>
             <AuthorizationUserForm onSubmit={onLogin} isLoggedIn={isLoggedIn} name='login' title='Вход' buttonText='Войти' additionalClassName='popup__additionalInfo_type_hidden'/>
         </>
     )

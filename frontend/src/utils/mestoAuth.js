@@ -17,7 +17,8 @@ export const register = ({email, password}) => {
     return request(`${BASE_URL}/signup`, {
         method: 'POST',
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            'credentials': 'include'
         },
         body: JSON.stringify({password, email})
         })
@@ -31,7 +32,8 @@ export const authorize = ({email, password}) => {
     return request(`${BASE_URL}/signin`, {
         method: 'POST',
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            'credentials': 'include'
         },
         body: JSON.stringify({password, email})
     })

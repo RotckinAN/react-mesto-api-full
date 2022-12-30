@@ -41,7 +41,7 @@ function App() {
                 setIsLoggedIn(true);
                 setInfoTooltipText('Вы успешно зарегистрировались!');
                 handleRegisterInfoTooltipOpen(true);
-                history.push('/sign-in');
+                history.push('/signin');
             }
             } catch {
                 setInfoTooltipText('Что-то пошло не так!\n' + 'Попробуйте ещё раз.')
@@ -272,14 +272,14 @@ function App() {
                 <Switch>
                     <ProtectedRoute exact path='/' loggedIn={isLoggedIn} component={Main} onEditAvatar={handleEditAvatarClick} onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onCardClick={handleCardClick} onCardLike={handleCardLike} cards={cards} onDeleteButtonClick={handleConfirmationPopupOpen} userData={userData} logout={userLogout}>
                     </ProtectedRoute>
-                    <Route path='/sign-up'>
+                    <Route path='/signup'>
                         <Register isLoggedIn={isLoggedIn} onRegister={userRegister}/>
                     </Route>
-                    <Route path='/sign-in'>
+                    <Route path='/signin'>
                         <Login isLoggedIn={isLoggedIn} onLogin={userLogin} />
                     </Route>
                     <Route>
-                        {isLoggedIn ? <Redirect exact to='/'/> : <Redirect to='/sign-in'/>}
+                        {isLoggedIn ? <Redirect exact to='/'/> : <Redirect to='/signin'/>}
                     </Route>
                 </Switch>
                 <Footer />
