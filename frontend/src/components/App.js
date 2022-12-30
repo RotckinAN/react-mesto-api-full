@@ -96,9 +96,9 @@ function App() {
         // }
         try {
             const resUser = await auth.checkToken();
-            if (!resUser) {
-                throw new Error('Invalid user')
-            }
+            // if (!resUser) {
+            //     throw new Error('Invalid user')
+            // }
             if (resUser.statusCode !== 401) {
                 setUserData(resUser.data);
                 setIsLoggedIn(true);

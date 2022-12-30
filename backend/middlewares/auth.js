@@ -8,13 +8,13 @@ const auth = (req, res, next) => {
 
   try {
     if (!req.cookies) {
-      throw new Unauthorized('Необходима авторизация');
+      return next(new Unauthorized('Необходима авторизация'));
     }
 
     try {
       payload = jwt.verify(token, tokenKey);
     } catch (err) {
-      throw new Unauthorized('Необходима авторизация');
+      return next(new Unauthorized('Необходима авторизация'));
     }
 
     req.user = payload;
