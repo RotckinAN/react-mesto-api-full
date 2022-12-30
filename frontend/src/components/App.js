@@ -99,7 +99,7 @@ function App() {
     useEffect(() => {
         handleTokenCheck()
             .catch((err) => {
-            console.error(err)})
+            console.error('Checking error handleTokenCheck')})
     }, [handleTokenCheck])
 
     useEffect(() => {
