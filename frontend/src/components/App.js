@@ -87,13 +87,13 @@ function App() {
         // !!!!
         //     const resUser = await auth.checkToken()
         // console.log(resUser)
-            // if (!resUser) {
-            //     throw new Error('Invalid user')
-            // }
-            // if (resUser) {
-            //     setUserData(resUser.data);
-            //     setIsLoggedIn(true);
-            // }
+        // if (!resUser) {
+        //     throw new Error('Invalid user')
+        // }
+        // if (resUser) {
+        //     setUserData(resUser.data);
+        //     setIsLoggedIn(true);
+        // }
         try {
             const resUser = await auth.checkToken();
             if (!resUser) {
@@ -110,6 +110,7 @@ function App() {
         // **
         // }
         setIsLoadingPage(false);
+    }
     // }, [localStorage.getItem('jwt')]);
     // }, []);
 
