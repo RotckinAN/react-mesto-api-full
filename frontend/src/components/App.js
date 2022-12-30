@@ -93,6 +93,19 @@ function App() {
             //     setUserData(resUser.data);
             //     setIsLoggedIn(true);
             // }
+        try {
+            const resUser = await auth.checkToken();
+            if (!resUser) {
+                throw new Error('Invalid user')
+            }
+            if (resUser.statusCode !== 401) {
+                setUserData(resUser.data);
+                setIsLoggedIn(true);
+            }
+        } catch (err) {
+            throw new Error('Invalid user')
+        }
+
         // **
         // }
         setIsLoadingPage(false);
