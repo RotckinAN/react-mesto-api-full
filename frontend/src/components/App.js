@@ -83,23 +83,26 @@ function App() {
         //     if (!jwt) {
         //         throw new Error('No token in storage');
         //     }
-
-            const resUser = await auth.checkToken()
-            if (!resUser) {
-                throw new Error('Invalid user')
-            }
-            if (resUser.data) {
-                setUserData(resUser.data);
-                setIsLoggedIn(true);
-            }
+        // !!!!
+        //     const resUser = await auth.checkToken()
+        // console.log(resUser)
+            // if (!resUser) {
+            //     throw new Error('Invalid user')
+            // }
+            // if (resUser) {
+            //     setUserData(resUser.data);
+            //     setIsLoggedIn(true);
+            // }
+        // **
         // }
         setIsLoadingPage(false);
-    }, [localStorage.getItem('jwt')]);
+    // }, [localStorage.getItem('jwt')]);
+    }, []);
 
     useEffect(() => {
         handleTokenCheck()
             .catch((err) => {
-            console.error('Checking error handleTokenCheck')})
+            console.error(err)})
     }, [handleTokenCheck])
 
     useEffect(() => {
