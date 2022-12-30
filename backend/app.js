@@ -13,12 +13,12 @@ const { allowedCorsMiddleware } = require('./middlewares/allowedCors');
 const { PORT = 3000 } = process.env;
 const app = express();
 
+app.use(allowedCorsMiddleware);
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(limiter);
 app.use(helmet());
 app.use(requestLogger);
-app.use(allowedCorsMiddleware);
 
 app.use(router);
 app.use(errorLogger);
