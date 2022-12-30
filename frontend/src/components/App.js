@@ -77,56 +77,56 @@ function App() {
         // localStorage.removeItem('jwt');
     }, [])
 
-    // const handleTokenCheck = useCallback(async () => {
-    //     if (localStorage.getItem('jwt')) {
-    //         const jwt = localStorage.getItem('jwt');
-    //         if (!jwt) {
-    //             throw new Error('No token in storage');
-    //         }
-    //
-    //         const resUser = await auth.checkToken(jwt)
-    //         if (!resUser) {
-    //             throw new Error('Invalid user')
-    //         }
-    //         if (resUser.data) {
-    //             setUserData(resUser.data);
-    //             setIsLoggedIn(true);
-    //         }
-    //     }
-    //     setIsLoadingPage(false);
-    // }, [localStorage.getItem('jwt')]);
+    const handleTokenCheck = useCallback(async () => {
+        // if (localStorage.getItem('jwt')) {
+        //     const jwt = localStorage.getItem('jwt');
+        //     if (!jwt) {
+        //         throw new Error('No token in storage');
+        //     }
 
-    // useEffect(() => {
-    //     handleTokenCheck()
-    //         .catch((err) => {
-    //         console.error(err)})
-    // }, [handleTokenCheck])
+            const resUser = await auth.checkToken()
+            if (!resUser) {
+                throw new Error('Invalid user')
+            }
+            if (resUser.data) {
+                setUserData(resUser.data);
+                setIsLoggedIn(true);
+            }
+        // }
+        setIsLoadingPage(false);
+    }, [localStorage.getItem('jwt')]);
 
-    // useEffect(() => {
-    //     if (isLoggedIn) {
+    useEffect(() => {
+        handleTokenCheck()
+            .catch((err) => {
+            console.error(err)})
+    }, [handleTokenCheck])
+
+    useEffect(() => {
+        if (isLoggedIn) {
             api.getUserInfoByRequest()
                 .then((res) => {
                     setCurrentUser(res);
-                    setIsLoggedIn(true);
+                    // setIsLoggedIn(true);
                 })
                 .catch((err) => {
                     console.error(err)
                 });
-    //     }
-    // }, [isLoggedIn]);
+        }
+    }, [isLoggedIn]);
 
-    // useEffect(() => {
-    //     if (isLoggedIn) {
+    useEffect(() => {
+        if (isLoggedIn) {
             api.getInitialCards()
                 .then((cards) => {
                     setCards(cards);
-                    setIsLoggedIn(true);
+                    // setIsLoggedIn(true);
                 })
                 .catch((err) => {
                     console.error(err)
                 });
-    //     }
-    // }, [isLoggedIn]);
+        }
+    }, [isLoggedIn]);
 
     function handleEditProfileClick() {
         setIsEditProfilePopupOpen(true)

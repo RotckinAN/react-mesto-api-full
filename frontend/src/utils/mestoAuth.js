@@ -41,16 +41,16 @@ export const authorize = ({email, password}) => {
         .catch((err) => console.error(err));
 }
 
-// export const checkToken = () => {
-//     return request(`${BASE_URL}/users/me`, {
-//         method: 'GET',
-//         headers: {
-//             "Content-Type": "application/json"
-//             // "Authorization" : `Bearer ${JWT}`
-//         }
-//     })
-//         .then((res) => {
-//             return res
-//         })
-//         .catch((err) => console.error(err));
-// }
+export const checkToken = () => {
+    return request(`${BASE_URL}/users/me`, {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json"
+            // "Authorization" : `Bearer ${JWT}`
+        }
+    })
+        .then((res) => {
+            return res
+        })
+        .catch((err) => console.error(err));
+}
