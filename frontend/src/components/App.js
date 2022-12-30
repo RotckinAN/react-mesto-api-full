@@ -53,11 +53,11 @@ function App() {
     const userLogin = useCallback(async (registrationData) => {
         try {
             const data = await auth.authorize(registrationData);
-            if (!data.token) {
+            if (data.statusCode !== 200) {
                 throw new Error('Invalid credentials');
             }
-            if (data.token) {
-                localStorage.setItem('jwt', data.token);
+            if (data.statusCode === 200) {
+                // localStorage.setItem('jwt', data.token);
                 setIsLoggedIn(true);
                 setUserData(registrationData.email);
                 setInfoTooltipText('Добро пожаловать!');
@@ -72,35 +72,35 @@ function App() {
         }
     }, []);
 
-    const userLogout = useCallback(() => {
+    const userLogout = useCallback(() => {  // ! нужно написать запрос на логаут
         setIsLoggedIn(false);
-        localStorage.removeItem('jwt');
+        // localStorage.removeItem('jwt');
     }, [])
 
-    const handleTokenCheck = useCallback(async () => {
-        if (localStorage.getItem('jwt')) {
-            const jwt = localStorage.getItem('jwt');
-            if (!jwt) {
-                throw new Error('No token in storage');
-            }
+    // const handleTokenCheck = useCallback(async () => {
+    //     if (localStorage.getItem('jwt')) {
+    //         const jwt = localStorage.getItem('jwt');
+    //         if (!jwt) {
+    //             throw new Error('No token in storage');
+    //         }
+    //
+    //         const resUser = await auth.checkToken(jwt)
+    //         if (!resUser) {
+    //             throw new Error('Invalid user')
+    //         }
+    //         if (resUser.data) {
+    //             setUserData(resUser.data);
+    //             setIsLoggedIn(true);
+    //         }
+    //     }
+    //     setIsLoadingPage(false);
+    // }, [localStorage.getItem('jwt')]);
 
-            const resUser = await auth.checkToken(jwt)
-            if (!resUser) {
-                throw new Error('Invalid user')
-            }
-            if (resUser.data) {
-                setUserData(resUser.data);
-                setIsLoggedIn(true);
-            }
-        }
-        setIsLoadingPage(false);
-    }, [localStorage.getItem('jwt')]);
-
-    useEffect(() => {
-        handleTokenCheck()
-            .catch((err) => {
-            console.error(err)})
-    }, [handleTokenCheck])
+    // useEffect(() => {
+    //     handleTokenCheck()
+    //         .catch((err) => {
+    //         console.error(err)})
+    // }, [handleTokenCheck])
 
     useEffect(() => {
         if (isLoggedIn) {

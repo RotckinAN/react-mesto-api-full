@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://auth.nomoreparties.co';
+export const BASE_URL = 'https://api.manovieta.nomoredomains.club';
 
 const request = (url, options) => {
     return fetch(url, options).then(getRequestData())
@@ -41,16 +41,16 @@ export const authorize = ({email, password}) => {
         .catch((err) => console.error(err));
 }
 
-export const checkToken = (JWT) => {
-    return request(`${BASE_URL}/users/me`, {
-        method: 'GET',
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization" : `Bearer ${JWT}`
-        }
-    })
-        .then((res) => {
-            return res
-        })
-        .catch((err) => console.error(err));
-}
+// export const checkToken = () => {
+//     return request(`${BASE_URL}/users/me`, {
+//         method: 'GET',
+//         headers: {
+//             "Content-Type": "application/json"
+//             // "Authorization" : `Bearer ${JWT}`
+//         }
+//     })
+//         .then((res) => {
+//             return res
+//         })
+//         .catch((err) => console.error(err));
+// }

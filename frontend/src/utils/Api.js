@@ -82,9 +82,9 @@ class Api {
 }
 
 export const api = new Api({
-    url: 'https://mesto.nomoreparties.co/v1/cohort-50/',
+    url: 'https://api.manovieta.nomoredomains.club/',
     headers: {
-        authorization: 'd9722592-b388-4281-b273-bb490f84d549',
+        // authorization: 'd9722592-b388-4281-b273-bb490f84d549',
         'Content-type': 'application/json'
     }
 });
