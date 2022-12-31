@@ -96,11 +96,11 @@ function App() {
         // }
         try {
             const resUser = await auth.checkToken();
-            console.log(resUser.statusCode)
-            // if (!resUser) {
-            //     throw new Error('Invalid user')
-            // }
-            if (resUser.statusCode === 200) {
+            // console.log(resUser.statusCode)
+            if (!resUser) {
+                throw new Error('Invalid user')
+            }
+            if (resUser) {
                 setUserData(resUser);
                 setIsLoggedIn(true);
             }
