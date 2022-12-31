@@ -96,6 +96,7 @@ function App() {
         // }
         try {
             const resUser = await auth.checkToken();
+            console.log(resUser)
             // if (!resUser) {
             //     throw new Error('Invalid user')
             // }
