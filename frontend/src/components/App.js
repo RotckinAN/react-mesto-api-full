@@ -36,7 +36,7 @@ function App() {
     const userRegister = useCallback(async (registrationData) => {
         try {
             const res = await auth.register(registrationData);
-            if(res.statusCode !== 400) {
+            if(res) {
                 setUserData(res.data);
                 setIsLoggedIn(true);
                 setInfoTooltipText('Вы успешно зарегистрировались!');
@@ -53,18 +53,16 @@ function App() {
     const userLogin = useCallback(async (registrationData) => {
         try {
             const data = await auth.authorize(registrationData);
-            console.log(data)
-            console.log(data.status)
-            // if (data.statusCode !== 200) {
-            //     throw new Error('Invalid credentials');
-            // }
-            // if (data.statusCode === 200) {
+            if (!data) {
+                throw new Error('Invalid credentials');
+            }
+            if (data) {
                 // localStorage.setItem('jwt', data.token);
                 setIsLoggedIn(true);
                 setUserData(registrationData.email);
                 setInfoTooltipText('Добро пожаловать!');
                 handleLoginInfoTooltipOpen(true);
-            // }
+            }
         } catch {
             setInfoTooltipText('Что-то пошло не так!\n' + 'Попробуйте ещё раз.')
             handleLoginInfoTooltipOpen(true);

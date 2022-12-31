@@ -20,6 +20,7 @@ class Api {
     getUserInfoByRequest() {
         return this._request(`${this._url}users/me`, {
             method: 'GET',
+            credentials: 'include',
             headers: this._headers
         })
     }
@@ -27,6 +28,7 @@ class Api {
     getInitialCards() {
         return this._request(`${this._url}cards`, {
             method: 'GET',
+            credentials: 'include',
             headers: this._headers
         })
     }
@@ -34,6 +36,7 @@ class Api {
     patchProfileInfo(profileInfo) {
         return this._request(`${this._url}users/me`, {
             method: 'PATCH',
+            credentials: 'include',
             headers: this._headers,
             body: JSON.stringify(profileInfo)
         })
@@ -42,6 +45,7 @@ class Api {
     postNewPhoto(newPhoto) {
         return this._request(`${this._url}cards`, {
             method: 'POST',
+            credentials: 'include',
             headers: this._headers,
             body: JSON.stringify(newPhoto)
         })
@@ -50,6 +54,7 @@ class Api {
     deleteCard(cardId) {
         return this._request(`${this._url}cards/${cardId}`, {
             method: 'DELETE',
+            credentials: 'include',
             headers: this._headers,
         })
     }
@@ -61,6 +66,7 @@ class Api {
     putLike(cardId) {
         return this._request(`${this._url}cards/${cardId}/likes`, {
             method: 'PUT',
+            credentials: 'include',
             headers: this._headers,
         })
     }
@@ -68,6 +74,7 @@ class Api {
     deleteLike(cardId) {
         return this._request(`${this._url}cards/${cardId}/likes`, {
             method: 'DELETE',
+            credentials: 'include',
             headers: this._headers,
         })
     }
@@ -75,6 +82,7 @@ class Api {
     patchProfileAvatar(newAvatar) {
         return this._request(`${this._url}users/me/avatar`, {
             method: 'PATCH',
+            credentials: 'include',
             headers: this._headers,
             body: JSON.stringify(newAvatar)
         })
@@ -86,6 +94,6 @@ export const api = new Api({
     headers: {
         // authorization: 'd9722592-b388-4281-b273-bb490f84d549',
         'Content-type': 'application/json',
-        'credentials': 'include'
+        // 'credentials': 'include'
     }
 });
