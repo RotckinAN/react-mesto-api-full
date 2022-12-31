@@ -77,8 +77,8 @@ function App() {
         // localStorage.removeItem('jwt');
     }, [])
 
-    // const handleTokenCheck = useCallback(async () => {
-    const handleTokenCheck = async () => {
+    const handleTokenCheck = useCallback(async () => {
+    // const handleTokenCheck = async () => {
         // if (localStorage.getItem('jwt')) {
         //     const jwt = localStorage.getItem('jwt');
         //     if (!jwt) {
@@ -99,25 +99,26 @@ function App() {
             // if (!resUser) {
             //     throw new Error('Invalid user')
             // }
-            if (resUser.statusCode !== 401) {
+            if (resUser.statusCode !== 401 || resUser.statusCode !== 500) {
                 setUserData(resUser.data);
                 setIsLoggedIn(true);
             }
         } catch (err) {
             throw new Error('Invalid user')
+        } finally {
+            setIsLoadingPage(false);
         }
 
         // **
         // }
-        setIsLoadingPage(false);
-    }
+    // }
     // }, [localStorage.getItem('jwt')]);
-    // }, []);
+    }, []);
 
     useEffect(() => {
         handleTokenCheck()
-            .catch((err) => {
-            console.error(err)})
+            // .catch((err) => {
+            // console.error(err)})
     }, [handleTokenCheck])
 
     useEffect(() => {
