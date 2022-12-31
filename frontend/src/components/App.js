@@ -168,8 +168,8 @@ function App() {
         setIsInfoTooltipOpen(true);
     }
 
-    function handleCardLike(card) {
-        const isLiked = card.likes.some(i => i._id === currentUser._id);
+    function handleCardLike(card) { // !! в массиве лайков нет ключа _id, там просто передан сам id
+        const isLiked = card.likes.some(i => i === currentUser._id);
         api.changeLikeCardStatus(card._id, !isLiked)
             .then((newCard) => {
             setCards((state) =>

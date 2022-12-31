@@ -3,8 +3,8 @@ import {CurrentUserContext} from "../contexts/CurrentUserContext";
 
 function Card({card, onCardLike, onCardClick, onDeleteButtonClick}) {
     const userContext = useContext(CurrentUserContext);
-    const isOwn = userContext._id === card.owner._id;
-    const isLiked = card.likes.some(i => i._id === userContext._id);
+    const isOwn = userContext._id === card.owner;
+    const isLiked = card.likes.some(i => i === userContext._id);
     const cardDeleteButtonClassName = (`element__trash ${isOwn ? '' : 'element__trash_type_hidden'}`);
     const cardLikeButtonClassName = (`element__like ${isLiked ? 'element__like_active' : ''}`)
 
