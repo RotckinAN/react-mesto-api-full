@@ -53,6 +53,7 @@ function App() {
     const userLogin = useCallback(async (registrationData) => {
         try {
             const data = await auth.authorize(registrationData);
+            console.log(data)
             if (data.statusCode !== 200) {
                 throw new Error('Invalid credentials');
             }
@@ -118,8 +119,8 @@ function App() {
 
     useEffect(() => {
         handleTokenCheck()
-            // .catch((err) => {
-            // console.error(err)})
+            .catch((err) => {
+            console.error(err)})
     }, [handleTokenCheck])
 
     useEffect(() => {
