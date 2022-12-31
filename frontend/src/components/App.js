@@ -96,7 +96,6 @@ function App() {
         // }
         try {
             const resUser = await auth.checkToken();
-            // console.log(resUser.statusCode)
             if (!resUser) {
                 throw new Error('Invalid user')
             }
@@ -127,7 +126,6 @@ function App() {
             api.getUserInfoByRequest()
                 .then((res) => {
                     setCurrentUser(res);
-                    // setIsLoggedIn(true);
                 })
                 .catch((err) => {
                     console.error(err)
@@ -138,10 +136,7 @@ function App() {
     useEffect(() => {
         if (isLoggedIn) {
             api.getInitialCards()
-                .then((cards) => {
-                    setCards(cards);
-                    // setIsLoggedIn(true);
-                })
+                .then(setCards)
                 .catch((err) => {
                     console.error(err)
                 });
@@ -174,11 +169,11 @@ function App() {
     }
 
     function handleCardLike(card) {
-        const isLiked = card.likes.some(i => i._id.toString() === currentUser._id);
-        api.changeLikeCardStatus(card._id.toString(), !isLiked)
+        const isLiked = card.likes.some(i => i._id === currentUser._id);
+        api.changeLikeCardStatus(card._id, !isLiked)
             .then((newCard) => {
             setCards((state) =>
-                state.map((c) => (c._id.toString() === card._id.toString() ? newCard : c))
+                state.map((c) => (c._id === card._id ? newCard : c))
             );
         })
             .catch((err) => {
