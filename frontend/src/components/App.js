@@ -54,7 +54,7 @@ function App() {
         try {
             const data = await auth.authorize(registrationData);
             console.log(data)
-            console.log(data.statusCode)
+            console.log(data.status)
             if (data.statusCode !== 200) {
                 throw new Error('Invalid credentials');
             }
