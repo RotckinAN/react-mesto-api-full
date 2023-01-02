@@ -17,6 +17,7 @@ import * as auth from "../utils/mestoAuth";
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedInImage, setIsLoggedInImage] = useState(false);
     const [isLoadingPage, setIsLoadingPage] = useState(true);
     const [userData, setUserData] = useState({});
     const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
@@ -38,7 +39,7 @@ function App() {
             const res = await auth.register(registrationData);
             if(res) {
                 setUserData(res);
-                // setIsLoggedIn(true);
+                setIsLoggedInImage(true);
                 setInfoTooltipText('Вы успешно зарегистрировались!');
                 handleRegisterInfoTooltipOpen(true);
                 history.push('/signin');
@@ -59,6 +60,7 @@ function App() {
             if (data) {
                 // localStorage.setItem('jwt', data.token);
                 setIsLoggedIn(true);
+                setIsLoggedInImage(true);
                 setUserData(registrationData);
                 setInfoTooltipText('Добро пожаловать!');
                 handleLoginInfoTooltipOpen(true);
@@ -299,7 +301,7 @@ function App() {
                 </Switch>
                 <Footer />
 
-                <InfoTooltip loggedIn={isLoggedIn} name='infoTooltip' isOpen={isInfoTooltipOpen} infoText={infoTooltipText} onClose={closeAllPopups} />
+                <InfoTooltip loggedIn={isLoggedInImage} name='infoTooltip' isOpen={isInfoTooltipOpen} infoText={infoTooltipText} onClose={closeAllPopups} />
                 <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} isLoading={isLoading} />
                 <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} onAddPlaceSubmit={handleAddPlaceSubmit} isLoading={isLoading} />
                 <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} isLoading={isLoading} />
