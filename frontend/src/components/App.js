@@ -38,7 +38,7 @@ function App() {
             const res = await auth.register(registrationData);
             if(res) {
                 setUserData(res);
-                setIsLoggedIn(true);
+                // setIsLoggedIn(true);
                 setInfoTooltipText('Вы успешно зарегистрировались!');
                 handleRegisterInfoTooltipOpen(true);
                 history.push('/signin');
@@ -59,7 +59,7 @@ function App() {
             if (data) {
                 // localStorage.setItem('jwt', data.token);
                 setIsLoggedIn(true);
-                setUserData(registrationData.email);
+                setUserData(registrationData);
                 setInfoTooltipText('Добро пожаловать!');
                 handleLoginInfoTooltipOpen(true);
             }
