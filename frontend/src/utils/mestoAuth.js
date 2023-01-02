@@ -19,7 +19,6 @@ export const register = ({email, password}) => {
         credentials: 'include',
         headers: {
             "Content-Type": "application/json",
-            // 'credentials': 'include'
         },
         body: JSON.stringify({password, email})
         })
@@ -35,7 +34,6 @@ export const authorize = ({email, password}) => {
         credentials: 'include',
         headers: {
             "Content-Type": "application/json",
-            // 'credentials': 'include'
         },
         body: JSON.stringify({password, email})
     })
@@ -51,8 +49,20 @@ export const checkToken = () => {
         credentials: 'include',
         headers: {
             "Content-Type": "application/json",
+        }
+    })
+        .then((res) => {
+            return res
+        })
+        .catch((err) => console.error(err));
+}
 
-            // "Authorization" : `Bearer ${JWT}`
+export const logOut = () => {
+    return request(`${BASE_URL}/signout`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            "Content-Type": "application/json",
         }
     })
         .then((res) => {

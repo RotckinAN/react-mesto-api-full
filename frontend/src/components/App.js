@@ -61,7 +61,6 @@ function App() {
                 throw new Error('Invalid credentials');
             }
             if (data) {
-                // localStorage.setItem('jwt', data.token);
                 setIsLoggedIn(true);
                 setIsLoggedInImage(true);
                 setUserData(registrationData);
@@ -77,28 +76,18 @@ function App() {
         }
     }, []);
 
-    const userLogout = useCallback(() => {  // ! нужно написать запрос на логаут
-        setIsLoggedIn(false);
-        // localStorage.removeItem('jwt');
+    const userLogout = useCallback(async () => {
+        try {
+            const logOut = await auth.logOut();
+            console.log(logOut)
+            setIsLoggedIn(false);
+
+        } catch {
+            throw new Error('Invalid credentials');
+        }
     }, [])
 
     const handleTokenCheck = useCallback(async () => {
-    // const handleTokenCheck = async () => {
-        // if (localStorage.getItem('jwt')) {
-        //     const jwt = localStorage.getItem('jwt');
-        //     if (!jwt) {
-        //         throw new Error('No token in storage');
-        //     }
-        // !!!!
-        //     const resUser = await auth.checkToken()
-        // console.log(resUser)
-        // if (!resUser) {
-        //     throw new Error('Invalid user')
-        // }
-        // if (resUser) {
-        //     setUserData(resUser.data);
-        //     setIsLoggedIn(true);
-        // }
         try {
             const resUser = await auth.checkToken();
             if (!resUser) {
@@ -113,11 +102,6 @@ function App() {
         } finally {
             setIsLoadingPage(false);
         }
-
-        // **
-        // }
-    // }
-    // }, [localStorage.getItem('jwt')]);
     }, []);
 
     useEffect(() => {
