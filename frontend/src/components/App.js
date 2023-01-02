@@ -37,7 +37,7 @@ function App() {
         try {
             const res = await auth.register(registrationData);
             if(res) {
-                setUserData(res.data);
+                setUserData(res);
                 setIsLoggedIn(true);
                 setInfoTooltipText('Вы успешно зарегистрировались!');
                 handleRegisterInfoTooltipOpen(true);
