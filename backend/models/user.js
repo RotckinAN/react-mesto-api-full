@@ -20,13 +20,13 @@ const userSchema = new mongoose.Schema({
   name: {
     type: String,
     minLength: 2,
-    maxLength: 30,
+    maxLength: 50,
     default: 'Жак-Ив Кусто',
   },
   about: {
     type: String,
     minLength: 2,
-    maxLength: 30,
+    maxLength: 50,
     default: 'Исследователь',
   },
   avatar: {
