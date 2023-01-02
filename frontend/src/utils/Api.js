@@ -90,10 +90,8 @@ class Api {
 }
 
 export const api = new Api({
-   url: 'https://api.manovieta.nomoredomains.club/',
+   url: 'http://api.manovieta.nomoredomains.club/',
    headers: {
-      // authorization: 'd9722592-b388-4281-b273-bb490f84d549',
       'Content-type': 'application/json',
-      // 'credentials': 'include'
    },
 });
