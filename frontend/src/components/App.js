@@ -37,14 +37,16 @@ function App() {
     const userRegister = useCallback(async (registrationData) => {
         try {
             const res = await auth.register(registrationData);
-            console.log(res)
-            // if(res) {
+            if (!res) {
+                throw new Error('Invalid credentials');
+            }
+            if (res) {
                 setUserData(res);
                 setIsLoggedInImage(true);
                 setInfoTooltipText('Вы успешно зарегистрировались!');
                 handleRegisterInfoTooltipOpen(true);
                 history.push('/signin');
-            // }
+            }
             } catch {
                 setInfoTooltipText('Что-то пошло не так!\n' + 'Попробуйте ещё раз.')
                 handleRegisterInfoTooltipOpen(true);
