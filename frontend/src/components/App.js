@@ -269,7 +269,7 @@ function App() {
         setIsLoading(true);
         api.patchProfileAvatar(newAvatar)
             .then((res) => {
-                setCurrentUser((state) => state.avatar = res.avatar);   /// setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
+                setCurrentUser((prevState) => ({...prevState, avatar: res.avatar}));   /// ? setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
                 closeAllPopups()
             })
             .catch((err) => {
