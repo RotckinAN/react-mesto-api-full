@@ -37,6 +37,7 @@ function App() {
     const userRegister = useCallback(async (registrationData) => {
         try {
             const res = await auth.register(registrationData);
+            console.log(res)
             // if(res) {
                 setUserData(res);
                 setIsLoggedInImage(true);
