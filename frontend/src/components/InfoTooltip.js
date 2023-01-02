@@ -1,7 +1,9 @@
-function InfoTooltip({loggedIn, isOpen, name, onClose, infoText}) {
-    const popupConfirmImage = (`popup__image ${loggedIn ? 'popup__image_type_successImage' : 'popup__image_type_failImage'}`);
+function InfoTooltip({
+  loggedIn, isOpen, name, onClose, infoText,
+}) {
+  const popupConfirmImage = (`popup__image ${loggedIn ? 'popup__image_type_successImage' : 'popup__image_type_failImage'}`);
 
-    return (
+  return (
         <div className={`popup popup_type_${name} ${isOpen ? 'popup_opened' : ''}`}>
             <div className="popup__container">
                 <button className="popup__close" type="button" onClick={onClose}></button>
@@ -11,7 +13,7 @@ function InfoTooltip({loggedIn, isOpen, name, onClose, infoText}) {
                 </div>
             </div>
         </div>
-    )
+  );
 }
 
-export default InfoTooltip
+export default InfoTooltip;

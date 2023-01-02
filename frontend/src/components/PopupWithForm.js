@@ -1,13 +1,15 @@
-function PopupWithForm({name, isOpen, onClose, onSubmit, additionalClassName, title, buttonText, children, isFormValid}) {
-    const buttonClassName = (`popup__save-button ${isFormValid ? '' : 'popup__save-button_invalid'}`)
+function PopupWithForm({
+  name, isOpen, onClose, onSubmit, additionalClassName, title, buttonText, children, isFormValid,
+}) {
+  const buttonClassName = (`popup__save-button ${isFormValid ? '' : 'popup__save-button_invalid'}`);
 
-    function overlayClose(evt) {
-        if (evt.target.classList.contains('popup_opened')) {
-            onClose();
-        }
+  function overlayClose(evt) {
+    if (evt.target.classList.contains('popup_opened')) {
+      onClose();
     }
+  }
 
-    return (
+  return (
         <div>
             {/* попап редактирования профиля */}
             <div className={`popup popup_type_${name} ${isOpen ? 'popup_opened' : ''}`} onClick={overlayClose}>
@@ -21,7 +23,7 @@ function PopupWithForm({name, isOpen, onClose, onSubmit, additionalClassName, ti
                 </div>
             </div>
         </div>
-    )
+  );
 }
 
-export default PopupWithForm
+export default PopupWithForm;

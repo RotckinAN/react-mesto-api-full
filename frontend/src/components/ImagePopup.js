@@ -1,13 +1,13 @@
-{/* фото в полный размер */}
+{ /* фото в полный размер */ }
 
-function ImagePopup({card, onClose}) {
-    function overlayClose(evt) {
-        if (evt.target.classList.contains('popup_opened')) {
-            onClose();
-        }
+function ImagePopup({ card, onClose }) {
+  function overlayClose(evt) {
+    if (evt.target.classList.contains('popup_opened')) {
+      onClose();
     }
+  }
 
-    return (
+  return (
         <div className={`popup popup_type_photo-FullSize ${card.state ? 'popup_opened' : ''}`} onClick={overlayClose}>
             <div className="popup__photo-fullSize-container">
                 <button className="popup__close" type="button" onClick={onClose}></button>
@@ -15,7 +15,7 @@ function ImagePopup({card, onClose}) {
                 <h3 className="popup__title">{card.alt}</h3>
             </div>
         </div>
-    )
+  );
 }
 
-export default ImagePopup
+export default ImagePopup;

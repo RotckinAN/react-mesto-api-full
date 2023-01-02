@@ -1,16 +1,18 @@
-import PopupWithForm from "./PopupWithForm";
+import PopupWithForm from './PopupWithForm';
 
-function ConfirmationPopup({isLoading, onClose, actualCard, onCardDelete, isOpen}) {
-    const buttonText = isLoading ? 'Удаление...' : 'Да';
+function ConfirmationPopup({
+  isLoading, onClose, actualCard, onCardDelete, isOpen,
+}) {
+  const buttonText = isLoading ? 'Удаление...' : 'Да';
 
-    function handleSubmit(evt) {
-        evt.preventDefault();
-        onCardDelete(actualCard)
-    }
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    onCardDelete(actualCard);
+  }
 
-    return (
+  return (
         <PopupWithForm name='confirmDelete' title='Вы уверены?' additionalClassName='popup__content-title_type_confirmDelete' isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit} buttonText={buttonText} isFormValid={true}/>
-    )
+  );
 }
 
-export default ConfirmationPopup
+export default ConfirmationPopup;

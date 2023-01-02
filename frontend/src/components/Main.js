@@ -1,12 +1,14 @@
-import {useContext} from "react";
-import Card from "./Card";
-import {CurrentUserContext} from "../contexts/CurrentUserContext";
-import Header from "./Header";
+import { useContext } from 'react';
+import Card from './Card';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import Header from './Header';
 
-function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick, cards, onCardLike, onDeleteButtonClick, userData, logout, loggedIn}) {
-    const userContext = useContext(CurrentUserContext);
+function Main({
+  onEditAvatar, onEditProfile, onAddPlace, onCardClick, cards, onCardLike, onDeleteButtonClick, userData, logout, loggedIn,
+}) {
+  const userContext = useContext(CurrentUserContext);
 
-    return (
+  return (
         <>
             <Header buttonPath={logout} loginText={userData.email} buttonText='Выйти' additionalClassName='header__loginButton_type_mainPage' loggedIn={loggedIn}/>
             <main className="content page__content">
@@ -31,7 +33,7 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick, cards, onCa
                 </section>
             </main>
         </>
-    )
+  );
 }
 
-export default Main
+export default Main;
