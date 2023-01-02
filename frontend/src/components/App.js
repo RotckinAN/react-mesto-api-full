@@ -37,13 +37,13 @@ function App() {
     const userRegister = useCallback(async (registrationData) => {
         try {
             const res = await auth.register(registrationData);
-            if(res) {
+            // if(res) {
                 setUserData(res);
                 setIsLoggedInImage(true);
                 setInfoTooltipText('Вы успешно зарегистрировались!');
                 handleRegisterInfoTooltipOpen(true);
                 history.push('/signin');
-            }
+            // }
             } catch {
                 setInfoTooltipText('Что-то пошло не так!\n' + 'Попробуйте ещё раз.')
                 handleRegisterInfoTooltipOpen(true);
