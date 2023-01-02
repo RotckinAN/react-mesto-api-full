@@ -6,7 +6,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "npx eslint .",
+    "lintFix": "npm run lint -- --fix"
   },
   "author": "Anatolii Rotckin",
   "license": "ISC",
@@ -35,5 +37,11 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://manovieta.nomoredomains.club/"
+  "homepage": "https://manovieta.nomoredomains.club/",
+  "devDependencies": {
+    "eslint": "^8.31.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-react": "^7.31.11"
+  }
 }

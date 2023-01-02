@@ -4,27 +4,11 @@ const allowedCors = [
   'localhost:3000',
 ];
 
-// const allowedCorsMiddleware = (req, res, next) => {
-//   const { origin } = req.headers;
-//   const { method } = req;
-//   const requestHeaders = req.headers['access-control-request-headers'];
-//
-//   if (method === 'OPTIONS') {
-//     res.header('Access-Control-Allow-Headers', requestHeaders);
-//     return res.end();
-//   }
-//
-//   if (allowedCors.includes(origin)) {
-//     return  res.header('Access-Control-Allow-Origin', origin);
-//   }
-//   return next();
-// };
-
 const allowedCorsMiddleware = {
   origin: allowedCors,
   optionsSuccessStatus: 200,
-  credentials: true
-}
+  credentials: true,
+};
 
 module.exports = {
   allowedCorsMiddleware,
