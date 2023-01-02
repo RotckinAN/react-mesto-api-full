@@ -141,7 +141,9 @@ function App() {
     useEffect(() => {
         if (isLoggedIn) {
             api.getInitialCards()
-                .then(setCards)
+                .then((cards) => {
+                    setCards(cards.reverse())
+                })
                 .catch((err) => {
                     console.error(err)
                 });
@@ -173,7 +175,7 @@ function App() {
         setIsInfoTooltipOpen(true);
     }
 
-    function handleCardLike(card) { // !! в массиве лайков нет ключа _id, там просто передан сам id
+    function handleCardLike(card) {
         const isLiked = card.likes.some(i => i === currentUser._id);
         api.changeLikeCardStatus(card._id, !isLiked)
             .then((newCard) => {
