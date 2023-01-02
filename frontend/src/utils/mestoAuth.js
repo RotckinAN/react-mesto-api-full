@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://api.manovieta.nomoredomains.club';
+export const BASE_URL = 'https://api.manovieta.nomoredomains.club';
 
 const request = (url, options) => fetch(url, options).then(getRequestData());
 

@@ -90,7 +90,7 @@ class Api {
 }
 
 export const api = new Api({
-   url: 'http://api.manovieta.nomoredomains.club/',
+   url: 'https://api.manovieta.nomoredomains.club/',
    headers: {
       'Content-type': 'application/json',
    },
