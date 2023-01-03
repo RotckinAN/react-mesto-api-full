@@ -7,7 +7,7 @@ const { InternalServerError } = require('../errors/internalServerError');
 const getCards = async (req, res, next) => {
   try {
     const cards = await Card.find({});
-    return res.status(200).json(cards);
+    return res.json(cards);
   } catch (err) {
     return next(new InternalServerError('Произошла ошибка загрузки карточек'));
   }
@@ -44,7 +44,7 @@ const deleteCard = async (req, res, next) => {
       throw new Forbidden('Произошла ошибка, вы не имеете права удалять карточку');
     }
 
-    return res.status(200).json({ message: 'Карточка удалена' });
+    return res.json({ message: 'Карточка удалена' });
   } catch (err) {
     if (err.name === 'CastError') {
       return next(new BadRequest('Произошла ошибка, переданы некорректные данные'));
@@ -75,7 +75,7 @@ const putLike = async (req, res, next) => {
       throw new NotFound('Произошла ошибка, переданы некорректные данные карточки (карточка не найдена)');
     }
 
-    return res.status(200).json(card);
+    return res.json(card);
   } catch (err) {
     if (err.name === 'CastError') {
       return next(new BadRequest('Произошла ошибка, переданы некорректные данные'));
@@ -106,7 +106,7 @@ const deleteLike = async (req, res, next) => {
       throw new NotFound('Произошла ошибка, переданы некорректные данные карточки (карточка не найдена)');
     }
 
-    return res.status(200).json(card);
+    return res.json(card);
   } catch (err) {
     if (err.name === 'CastError') {
       return next(new BadRequest('Произошла ошибка, переданы некорректные данные'));

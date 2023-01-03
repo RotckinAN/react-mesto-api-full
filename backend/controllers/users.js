@@ -22,7 +22,7 @@ const login = async (req, res, next) => {
       const payload = { _id: user._id };
       const token = generateToken(payload);
 
-      return res.status(200).cookie('jwt', token, {
+      return res.cookie('jwt', token, {
         maxAge: 3600000 * 24,
         httpOnly: true,
       }).json({ message: 'Вход выполнен успешно' });
@@ -36,7 +36,7 @@ const login = async (req, res, next) => {
 const getUsers = async (req, res, next) => {
   try {
     const users = await User.find({}).orFail(() => new Error('Пользователи не найдены'));
-    return res.status(200).json(users);
+    return res.json(users);
   } catch (err) {
     return next(new InternalServerError('Произошла ошибка загрузки данных о пользователях'));
   }
@@ -51,7 +51,7 @@ const getUser = async (req, res, next) => {
       throw new NotFound('Запрашиваемый пользователь не найден');
     }
 
-    return res.status(200).json(user);
+    return res.json(user);
   } catch (err) {
     if (err.name === 'CastError') {
       return next(new BadRequest('Произошла ошибка загрузки данных о пользователе'));
@@ -69,11 +69,8 @@ const getCurrentUser = async (req, res, next) => {
       throw new NotFound('Запрашиваемый пользователь не найден');
     }
 
-    return res.status(200).json(user);
+    return res.json(user);
   } catch (err) {
-    if (err.name === 'CastError') {
-      return next(new BadRequest('Произошла ошибка загрузки данных о пользователе'));
-    }
     return next(err);
   }
 };
@@ -121,7 +118,7 @@ const patchProfileInfo = async (req, res, next) => {
       throw new NotFound('Запрашиваемый пользователь не найден');
     }
 
-    return res.status(200).json({
+    return res.json({
       name: newUserInfo.name,
       about: newUserInfo.about,
     });
@@ -147,7 +144,7 @@ const patchProfileAvatar = async (req, res, next) => {
       throw new NotFound('Запрашиваемый пользователь не найден');
     }
 
-    return res.status(200).json({
+    return res.json({
       avatar: newUserAvatar.avatar,
     });
   } catch (err) {

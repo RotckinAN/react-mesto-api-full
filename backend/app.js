@@ -16,11 +16,11 @@ const { PORT = 3000 } = process.env;
 const app = express();
 
 app.use(cors(allowedCorsMiddleware));
+app.use(requestLogger);
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(limiter);
 app.use(helmet());
-app.use(requestLogger);
 
 app.get('/crash-test', () => {
   setTimeout(() => {
